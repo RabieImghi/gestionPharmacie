@@ -1,11 +1,12 @@
 <?php
-require '../vendor/autoload.php';
+include "../views/login/index.html";
+// require '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "./../");
-$dotenv->load();
+// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "./../");
+// $dotenv->load();
 
-// print_r($_ENV);
-$router = require '../src/Routes/index.php';
+// // print_r($_ENV);
+// $router = require '../src/Routes/index.php';
 
 
 
