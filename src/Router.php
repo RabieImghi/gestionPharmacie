@@ -2,28 +2,23 @@
 
 namespace App;
 
-class Router
-{
-    protected $routes = [];
+class Router {
+    public $routes = [];
 
-    private function addRoute($route, $controller, $action, $method)
-    {
+    private function addRoute($route, $controller, $action, $method) {
 
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
     }
 
-    public function get($route, $controller, $action)
-    {
+    public function get($route, $controller, $action) {
         $this->addRoute($route, $controller, $action, "GET");
     }
 
-    public function post($route, $controller, $action)
-    {
+    public function post($route, $controller, $action) {
         $this->addRoute($route, $controller, $action, "POST");
     }
 
-    public function dispatch()
-    {
+    public function dispatch() {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method =  $_SERVER['REQUEST_METHOD'];
 
