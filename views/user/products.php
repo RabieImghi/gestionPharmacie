@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-  <div class="projects section" id="projects">
+  <div class="projects section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -13,161 +13,41 @@ ob_start();
         </div>
       </div> 
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-features owl-carousel">
-            <div class="item">
-              <img src="assets/user/assets/images/projects-01.jpg" alt="">
-              <div class="down-content">
-                <h4>Digital Agency HTML Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Admin Dashboard CSS Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Best Responsive Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-04.jpg" alt="">
-              <div class="down-content">
-                <h4>HTML CSS Layouts for your websites</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Bootstrap 5 Themes for Free</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Mobile Friendly Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-          </div>
+    <div class="p-4 row">
+      <?php
+      foreach($medicament as $medicaments):
+      ?>
+      <div class="item col-lg-3"  >
+        <div style="text-align:center" >
+          <img src="assets/user/uploads/<?=$medicaments['image_url']?>"  style="width: 70%;" alt="">
+        </div>
+        <div class="down-content">
+          <h4><?=$medicaments['name']?></h4>
+          <p><?=$medicaments['description']?></p>
+          <a style="cursor: pointer;" onclick="addVent(<?=$medicaments['med_id']?>,<?=$_SESSION['user_id']?>)"><i class="fa fa-cart-plus"></i></a>
         </div>
       </div>
+      <?php
+      endforeach;
+      ?>
     </div>
   </div>
-  <div class="projects section" id="projects">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-features owl-carousel">
-            <div class="item">
-              <img src="assets/user/assets/images/projects-01.jpg" alt="">
-              <div class="down-content">
-                <h4>Digital Agency HTML Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Admin Dashboard CSS Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Best Responsive Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-04.jpg" alt="">
-              <div class="down-content">
-                <h4>HTML CSS Layouts for your websites</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Bootstrap 5 Themes for Free</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Mobile Friendly Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="projects section" id="projects">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-features owl-carousel">
-            <div class="item">
-              <img src="assets/user/assets/images/projects-01.jpg" alt="">
-              <div class="down-content">
-                <h4>Digital Agency HTML Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Admin Dashboard CSS Templates</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Best Responsive Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-04.jpg" alt="">
-              <div class="down-content">
-                <h4>HTML CSS Layouts for your websites</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-02.jpg" alt="">
-              <div class="down-content">
-                <h4>Bootstrap 5 Themes for Free</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-            <div class="item">
-              <img src="assets/user/assets/images/projects-03.jpg" alt="">
-              <div class="down-content">
-                <h4>Mobile Friendly Website Layouts</h4>
-                <a href="#"><i class="fa fa-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <script>
+    function addVent(idMed,idUser){
+        const xhttp = new XMLHttpRequest();
+        var data="idMed="+idMed+"&idUser="+idUser;
+
+        xhttp.open("POST", "/larvel/GestionPharmacie/public/addVent",true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+        }
+        };
+        xhttp.send(data);
+    }
+</script>
 <?php
 $content=ob_get_clean();
 include("header.php");

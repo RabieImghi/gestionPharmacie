@@ -3,32 +3,18 @@
 namespace App\Controllers;
 
 use App\Controller;
-use App\Models\Journal;
 
-class HomeController extends Controller
-{
-    public function index()
-    {
-        $journals = [
-            new Journal('My Third Journal Entry', '2023'),
-            new Journal('My Second Journal Entry', '2022'),
-            new Journal('My Second Journal', '2021')
-        ];
-
-        $this->render('index', ['journals' => $journals]);
+class HomeController {
+    public function index($data=[]) {
+        if(isset($_SESSION['role_user'])){
+            if($_SESSION['role_user']=="admin")
+            Controller::render('admin/index',$data);
+            if($_SESSION['role_user']=="patient_en_lign") 
+            Controller::render('user/index',$data);
+        }else Controller::render('user/index',$data);   
     }
     
-    public function user()
-    {
-        
-        $this->render('user');
-    }
-    public function insert()
-    {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $name = isset($_POST["username"]) ? $_POST["username"] : "";
-            $email = isset($_POST["password"]) ? $_POST["password"] : "";
-            $this->render('layout/home', ['name' => $name]);
-        }
+    public function errorPage(){
+        Controller::render('error404');
     }
 }

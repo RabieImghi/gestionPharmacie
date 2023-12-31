@@ -69,18 +69,25 @@
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
                             <li class="scroll-to-section"><a href="#projects">Projects</a></li>
-                            <li class="has-sub">
-                                <a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="faqs.html">FAQs</a></li>
-                                </ul>
-                            </li>
                             <li class="scroll-to-section"><a href="#infos">Infos</a></li>
                             <li class="scroll-to-section"><a href="#contact">Contact</a></li>
+                            <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/Medicament">Medicament</a></li>
+                            <?php
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                            <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/logout">List Bone</a></li>
+                            <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/logout">logOut</a></li>
+                            <?php
+                            }else{
+                            ?>
+                            <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/login">login</a></li>
+                            <?php
+                            }
+                            ?>
+                            
                         </ul>   
                             <a class='menu-trigger'>
                                 <span>Menu</span>
@@ -110,6 +117,7 @@
         <script src="assets/user/assets/js/tabs.js"></script>
         <script src="assets/user/assets/js/popup.js"></script>
         <script src="assets/user/assets/js/custom.js"></script>
+        
     </body>
 
 </html>

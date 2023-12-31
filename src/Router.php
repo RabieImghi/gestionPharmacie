@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Controllers\HomeController;
 
 class Router {
     public $routes = [];
@@ -29,7 +30,8 @@ class Router {
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("No route found for URI: $uri");
+            $controller = new HomeController();
+            $controller->errorPage();
         }
     }
 }
