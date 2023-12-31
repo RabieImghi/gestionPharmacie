@@ -3,6 +3,7 @@ use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\MedicamentController;
 use App\Controllers\VentController;
+use App\Controllers\AdminController;
 
 use App\Router;
 $url = $_ENV['APP_URL'];
@@ -13,6 +14,12 @@ $router->get($url.'/home', HomeController::class, 'index');
 $router->get($url.'/login', LoginController::class, 'index');
 $router->get($url.'/logout', LoginController::class, 'logoutUser');
 $router->get($url.'/Medicament', MedicamentController::class, 'getMedicament');
+
+$router->get($url.'/GestionUtilisateur', AdminController::class, 'GestionUtilisateur');
+$router->get($url.'/GestionMedicament', MedicamentController::class, 'GestionMedicament');
+$router->get($url.'/GestionVents', VentController::class, 'GestionVents');
+
+
 
 
 $router->post($url.'/register', LoginController::class, 'registerUser');

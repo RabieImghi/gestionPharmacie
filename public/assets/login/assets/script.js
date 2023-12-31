@@ -1,3 +1,4 @@
+
 function toggleForm(i){
     const form = document.querySelectorAll('form');
     form.forEach(element => {
@@ -21,6 +22,7 @@ function toggleForm(i){
         document.getElementById('right').style.animationName = 'twitch-three';
     }
 }
+toggleForm(0);
 function confirmPass() {
     let pass1 = document.getElementById('pass1').value;
     let pass2 = document.getElementById('pass2').value;

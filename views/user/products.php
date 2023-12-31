@@ -24,7 +24,18 @@ ob_start();
         <div class="down-content">
           <h4><?=$medicaments['name']?></h4>
           <p><?=$medicaments['description']?></p>
+          <?php
+            if(isset($_SESSION['user_id'])){
+          ?>
           <a style="cursor: pointer;" onclick="addVent(<?=$medicaments['med_id']?>,<?=$_SESSION['user_id']?>)"><i class="fa fa-cart-plus"></i></a>
+          <?php
+            }else{
+          ?>
+          <a href="<?=$_ENV['APP_URL']?>/login" style="cursor: pointer;"><i class="fa fa-cart-plus"></i></a>
+          <?php
+            }
+          ?>
+          
         </div>
       </div>
       <?php

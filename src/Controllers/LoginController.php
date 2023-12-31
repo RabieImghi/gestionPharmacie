@@ -5,7 +5,7 @@ use App\Controllers\HomeController;
 use App\models\PatientEnLigne;
 Class LoginController{
     public function index(){
-        Controller::render('login/index');
+        Controller::render('login/login');
     }
     public function loginUser(){
         $patient= new PatientEnLigne();
@@ -18,7 +18,7 @@ Class LoginController{
     public function registerUser(){
         $patient= new PatientEnLigne();
         $patient->registerUser($_POST);
-        Controller::render('login/index');
+        Controller::render('login/login');
     }
     public function logoutUser(){
         session_destroy();

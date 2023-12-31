@@ -73,11 +73,10 @@
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
                             <li class="scroll-to-section"><a href="#projects">Projects</a></li>
                             <li class="scroll-to-section"><a href="#infos">Infos</a></li>
-                            <li class="scroll-to-section"><a href="#contact">Contact</a></li>
                             <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/Medicament">Medicament</a></li>
                             <?php
                             if(isset($_SESSION["user_id"])){
-                            ?>
+                            ?>  
                             <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/logout">List Bone</a></li>
                             <li class="scroll-to-section"><a href="<?=$_ENV['APP_URL']?>/logout">logOut</a></li>
                             <?php
