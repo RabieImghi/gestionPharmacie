@@ -7,29 +7,23 @@ require_once "dompdf/autoload.inc.php";
 use Dompdf\Dompdf;
 
 class  RapportController{
-   
-    public function rapportVent(){
-        $vent= new RapportVent();
-        $data['vents']=$vent->getAllVents();
-        Controller::render('admin/ventRapport',$data);
+    public function generateRapport($Model,$action,$dataName,$view,$randerView){
+        $allData= new $Model();
+        $data[$dataName]=$allData->$action();
+        Controller::render('admin/'.$view,$data);
         $dompdf=new Dompdf();
         $dompdf->loadHtml($_SESSION['rapportVent']);
         $dompdf->setPaper('A4','lnandscape');
         $dompdf->render();
-        $filename = 'vent_rapport_' . date('Y-m-d') . '.pdf'; 
+        $filename =$view.'_'. date('Y-m-d') . '.pdf'; 
         $dompdf->stream($filename);
-        Controller::render('admin/vent',$data);
+        Controller::render('admin/'.$randerView,$data);
+    }
+    public function rapportVent(){
+        $this->generateRapport(RapportVent::class,'getAllVents','vents','ventRapport','vent');
     }
     public function rapportStock(){
-        $stock= new RapportStock();
-        $data['medicament']=$stock->getAllMedicament();
-        Controller::render('admin/StockRapport',$data);
-        $dompdf=new Dompdf();
-        $dompdf->loadHtml($_SESSION['rapportVent']);
-        $dompdf->setPaper('A4','lnandscape');
-        $dompdf->render();
-        $filename = 'vent_rapport_' . date('Y-m-d') . '.pdf'; 
-        $dompdf->stream($filename);
-        Controller::render('admin/vent',$data);
+        $this->generateRapport(RapportStock::class,'getAllMedicament','medicament','StockRapport','medicament');
     }
+  
 }
