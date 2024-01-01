@@ -13,11 +13,11 @@ $router->get($url.'/', HomeController::class, 'index');
 $router->get($url.'/home', HomeController::class, 'index');
 $router->get($url.'/login', LoginController::class, 'index');
 $router->get($url.'/logout', LoginController::class, 'logoutUser');
-$router->get($url.'/Medicament', MedicamentController::class, 'getMedicament');
+$router->get($url.'/Medicament', MedicamentController::class, 'getMedicament/user');
 
 $router->get($url.'/GestionUtilisateur', AdminController::class, 'GestionUtilisateur');
-$router->get($url.'/GestionMedicament', MedicamentController::class, 'GestionMedicament');
-$router->get($url.'/GestionVents', VentController::class, 'GestionVents');
+$router->get($url.'/GestionMedicament', MedicamentController::class, 'getMedicament/admin');
+$router->get($url.'/GestionVents', VentController::class, 'getAllVents');
 
 
 

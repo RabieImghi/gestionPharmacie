@@ -25,10 +25,12 @@ class Router {
 
         if (array_key_exists($uri, $this->routes[$method])) {
             $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
-
+            $actions = explode('/', $this->routes[$method][$uri]['action']);
+            $action=$actions[0];
             $controller = new $controller();
-            $controller->$action();
+            if(isset($actions[1]))
+                $controller->$action($actions[1]);
+            else $controller->$action();
         } else {
             $controller = new HomeController();
             $controller->errorPage();

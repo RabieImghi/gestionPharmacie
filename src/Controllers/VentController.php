@@ -8,4 +8,7 @@ class  VentController{
         $res=$vent->addVent($_POST);
         var_dump($res);
     }
+    public function getAllVents(){
+        
+    }
 }
