@@ -1,6 +1,11 @@
 <?php
 ob_start();
 ?>
+<div class='pt-4 pb-4'>
+  <form method="POST" action="<?=$_ENV['APP_URL']?>/GestionMedicament">
+    <button type="submit" class="btn btn-primary">Telecharge Rapport de Stock</button>
+  </form>
+</div>
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>

@@ -4,6 +4,7 @@ use App\Controllers\LoginController;
 use App\Controllers\MedicamentController;
 use App\Controllers\VentController;
 use App\Controllers\AdminController;
+use App\Controllers\RapportController;
 
 use App\Router;
 $url = $_ENV['APP_URL'];
@@ -25,6 +26,7 @@ $router->get($url.'/GestionVents', VentController::class, 'getAllVents');
 $router->post($url.'/register', LoginController::class, 'registerUser');
 $router->post($url.'/home', LoginController::class, 'loginUser');
 $router->post($url.'/addVent', VentController::class, 'addVent');
-$router->post($url.'/GestionVents', VentController::class, 'rapportVent');
+$router->post($url.'/GestionVents', RapportController::class, 'rapportVent');
+$router->post($url.'/GestionMedicament', RapportController::class, 'rapportStock');
 
 $router->dispatch();

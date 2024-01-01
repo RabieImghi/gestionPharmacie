@@ -66,49 +66,50 @@ ob_start();
 
     <div class="invoice-container">
         <div class="invoice-header">
-            <h2>Medicament Vents Invoice</h2>
+            <h2>Medicament Stock Invoice</h2>
         </div>
         <table>
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>User Name</th>
                     <th>Medicament Name</th>
-                    <th>Date Vents</th>
-                    <th>Type de Vent</th>
                     <th>Price</th>
+                    <th>Stock</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
             <?php
               $i=1;
               $total=0;
-              foreach($vents as $vent):
+              $totalStock=0;
+              foreach($medicament as $medicaments):
               ?>
                 <tr>
                     <td><?=$i?></td>
-                    <td><?=$vent['username']?></td>
-                    <td><?=$vent['name']?></td>
-                    <td><?=$vent['date']?></td>
-                    <td><?=$vent['type']?></td>
-                    <td>$<?=$vent['price']?></td>
+                    <td><?=$medicaments['name']?></td>
+                    <td>$ <?=$medicaments['price']?></td>
+                    <td><?=$medicaments['quantity']?></td>
+                    <td>$ <?php echo $totalMed= $medicaments['quantity']*$medicaments['price']?></td>
                 </tr>
               <?php
-              $total+=$vent['price'];
+              $totalStock+=$medicaments['quantity'];
+              $total+=$totalMed;
               $i++;
               endforeach;
               ?>
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="5" style="text-align: right;">Total:</th>
+                    <th colspan="3" style="text-align: right;">Total:</th>
+                    <td><?=$totalStock?> Medicament</td>
                     <td>$<?=$total?></td>
                 </tr>
             </tfoot>
         </table>
 
         <div class="invoice-footer">
-            <p>&copy; 2024 Medicament Ventss</p>
+            <p>&copy; 2024 Medicament Stock</p>
         </div>
     </div>
 
