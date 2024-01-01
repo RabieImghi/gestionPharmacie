@@ -25,4 +25,6 @@ $router->get($url.'/GestionVents', VentController::class, 'getAllVents');
 $router->post($url.'/register', LoginController::class, 'registerUser');
 $router->post($url.'/home', LoginController::class, 'loginUser');
 $router->post($url.'/addVent', VentController::class, 'addVent');
+$router->post($url.'/GestionVents', VentController::class, 'rapportVent');
+
 $router->dispatch();
